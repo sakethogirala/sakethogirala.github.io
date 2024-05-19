@@ -1,1 +1,1 @@
-[SakethOgi](https://github.com/sakethogirala/personal-website/)
+[SakethOgi](https://sakethogirala.github.io/)
