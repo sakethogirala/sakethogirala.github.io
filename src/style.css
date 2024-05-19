@@ -1,0 +1,349 @@
+/* styles.css */
+
+body {
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+/* :root{
+  --bsg-opacity: 0.5;
+} */
+
+header {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+}
+
+section {
+  margin: 20px 0;
+  padding: 20px;
+}
+
+section#portfolio article {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+section#workexp article {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* need p occupation to be black */
+h1 {
+  color: white;
+}
+
+/* need p occupation to be black */
+#header p {
+  color: white;
+}
+
+#header {
+  background-image: url('./assets/annarbor.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+  border-radius: 0; 
+  clip-path: none;
+  border-radius: 25px;
+}
+
+
+.name-box {
+  background-color: rgba(1, 1, 15, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  display: block;
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+.btn.btn-primary {
+  background-color: #54585c !important;
+  border-color: #54585c !important;
+}
+
+.btn.btn-primary:hover {
+  transform: scale(1.1); 
+}
+
+#footer {
+  background-color: #f8f9fa;
+  color: black;
+}
+
+.about-container {
+  text-align: center; /* Center-aligns the heading */
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: start; /* Aligns items at their start, helps manage different content heights */
+  justify-content: space-between; /* Maintains space between items */
+  text-align: left;
+}
+
+.about-image, .about-text {
+  flex: 1; /* Ensures both take equal space */
+  max-width: 50%; /* Limits width to half of the container for both */
+}
+
+.about-image img {
+  width: 85%; /* Ensures image uses full container width */
+  height: 610px; /* Keeps the aspect ratio of the image */
+  border-radius: 10px; /* Optional rounded corners */
+  object-fit: cover; /* Ensures the image covers the container */
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically centers text in the box if less content */
+  border: 1px solid #000; /* Optional border for styling */
+  padding: 20px;
+  border-radius: 10px; /* Optional rounded corners */
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+/* Ensures that the layout adapts responsively */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column; /* Stacks the image and text on smaller screens */
+  }
+
+  .about-image, .about-text {
+    max-width: 100%; /* Allows each to take the full width in a stacked layout */
+  }
+}
+
+.full-name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  text-align: center;
+  height: 0; /* Start with zero height */
+  overflow: hidden; /* Keep content hidden */
+  transition: height 0.3s ease-in-out, padding 0.3s ease-in-out;
+  padding: 0 10px; /* Initial padding */
+}
+
+.class-item:hover .full-name {
+  height: 50px; /* Expand to show full name */
+  
+}
+
+
+.class-item:hover {
+  height: 80px; /* Increases the height of the grid item on hover */
+}
+
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.class-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+  height: 40px; /* Fixed initial height */
+  overflow: hidden; /* Hide overflowing content initially */
+  position: relative; /* Allows absolute positioning of the full name */
+}
+
+@media (max-width: 768px) {
+  .classes-grid {
+      grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns on smaller screens */
+      grid-gap: 10px;
+  }
+}
+
+#classes .link-primary {
+  color: black !important; /* Bootstrap's default primary blue color */
+  text-decoration: underline #000; /* Adds underline to emphasize interactivity */
+  transition: color 0.3s ease-in-out; /* Smooth color transition for hover effects */
+}
+
+#classes .link-primary:hover {
+  color: black !important; /* Darker shade of blue on hover for better visibility and effect */
+  text-decoration: none #000; /* Removes underline on hover for a clean hover effect */
+}
+
+/* Work experience */
+
+.work-exp-item {
+  text-align: left; /* Aligns the text to the left side */
+}
+
+.flex {
+  display: flex; /* Establishes a flex container */
+  align-items: center; /* Vertically centers the items in the container */
+  justify-content: space-between; /* Distributes space between the items */
+}
+
+.flex img {
+  border-radius: 10px; /* Adds rounded corners to the image */
+  height: 200px; /* Sets a fixed height for the images */
+}
+
+.space-x-4 {
+  gap: 16px; /* Provides space between children horizontally */
+}
+
+.h-36 {
+  height: 144px; /* Sets a fixed height for the images */
+}
+
+.w-auto {
+  width: auto; /* Ensures the width is determined by the content itself */
+}
+
+.text-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Ensures the text details align to the left */
+}
+
+.additional-info {
+  padding-top: 8px; /* Adds space above the additional info */
+  list-style: square; /* Removes bullet points from list */
+}
+
+.additional-info li {
+  text-align: left; /* Aligns the list items' text to the left */
+  margin-bottom: 10px; /* Adds space between list items */
+}
+
+@media (max-width: 768px) {
+  .flex {
+    flex-direction: column; /* Stacks the flex children vertically on smaller screens */
+  }
+
+  .space-x-4 {
+    gap: 10px; /* Less space for smaller screens */
+  }
+
+  .text-details {
+    align-items: center; /* Centers the text details when stacked */
+  }
+}
+
+/* Portfolio Section */
+
+.portfolio-item {
+  text-align: left; /* Aligns the text to the left */
+}
+
+.portfolio-flex {
+  display: flex; /* Establishes a flex container */
+  align-items: center; /* Vertically centers the items in the container */
+  justify-content: space-between; /* Distributes space between the items */
+}
+
+.portfolio-flex img {
+  border-radius: 10px; /* Adds rounded corners to the image */
+  height: 200px; /* Sets a fixed height for the images */
+}
+
+.space-x-4 {
+  gap: 16px; /* Provides space between children horizontally */
+}
+
+.img-h-36 {
+  height: 144px; /* Sets a fixed height for the images */
+}
+
+.img-w-auto {
+  width: auto; /* Ensures the width is determined by the content itself */
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Ensures the text details align to the left */
+}
+
+.project-info {
+  padding-top: 8px; /* Adds space above the additional info */
+  list-style: square; /* Uses square bullet points */
+}
+
+.project-info li {
+  text-align: left; /* Aligns the list items' text to the left */
+  margin-bottom: 10px; /* Adds space between list items */
+}
+
+@media (max-width: 768px) {
+  .portfolio-flex {
+    flex-direction: column; /* Stacks the flex children vertically on smaller screens */
+  }
+
+  .space-x-4 {
+    gap: 10px; /* Less space for smaller screens */
+  }
+
+  .project-details {
+    align-items: center; /* Centers the text details when stacked */
+  }
+}
+
+.video-container {
+  position: relative; /* Establishes a positioning context for the video */
+  text-align: right;
+}
+
+
+/* Resume */
+#resumeFrame {
+  width: 80%; /* Reduce the width to 70% of its container */
+  height: 100vh; /* You might want to adjust this based on your design needs */
+  border: none;
+  display: block; /* Ensures the iframe is treated as a block-level element */
+  margin: auto; /* Automatically margins on both sides */
+}
+
+
+/* Contact */
+.contact-icons img {
+  width: 50px;  /* Adjust width as needed */
+  height: 50px; /* Adjust height as needed */
+  margin: 0 10px; /* Adjust spacing between icons */
+}
+
+.contact-icons img:hover {
+  transform: scale(1.1); /* Increases size on hover */
+}
+
+/* Additional styling to ensure the container centers them correctly */
+.flex-row {
+  display: flex;
+  justify-content: center; /* Center horizontally in the flex container */
+  align-items: center; /* Align vertically */
+  gap: 20px; /* Space between each icon */
+}
