@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from "react-dom/client";
 import { ChakraProvider } from '@chakra-ui/react';
+import { HashRouter as Router } from 'react-router-dom'; // Use HashRouter for GitHub Pages
 import './style.css'; // Optional: for styling
 import App from './App'; // Import App component
 
@@ -11,7 +12,9 @@ const root = createRoot(container); // Create a root at the container
 root.render(
     <React.StrictMode>
         <ChakraProvider>
-            <App />
+            <Router>
+                <App />
+            </Router>
         </ChakraProvider>
     </React.StrictMode>,
 );

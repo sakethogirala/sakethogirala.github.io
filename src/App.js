@@ -17,7 +17,6 @@ import { Box, VStack, IconButton, Tooltip } from '@chakra-ui/react';
 function App() {
     return (
         <ChakraProvider>
-            <Router>
                 <div>
                     <Header id="/" />
                     <ConditionalSidebar />
@@ -29,7 +28,6 @@ function App() {
                     <Contact id="contact" />
                     <Footer />
                 </div>
-            </Router>
         </ChakraProvider>
     );
 }
