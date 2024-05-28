@@ -75,12 +75,25 @@ h1 {
 }
 
 .btn.btn-primary {
-  background-color: #54585c !important;
-  border-color: #54585c !important;
+  background-color: #54585c; /* Subtle gray, you can change this to any color you prefer */
+  border: none; /* Removing the default border */
+  color: white; /* Text color */
+  padding: 12px 24px; /* More padding for a better touch area */
+  font-size: 16px; /* Slightly larger text */
+  border-radius: 30px; /* Rounded borders for a modern look */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for 3D effect */
+  transition: transform 0.3s ease-out, background-color 0.3s ease; /* Smooth transition for hover effects */
 }
 
-.btn.btn-primary:hover {
-  transform: scale(1.1); 
+.btn.btn-primary:hover, .btn.btn-primary:focus {
+  transform: translateY(-3px); /* Slight raise */
+  background-color: #6b7179; /* Slightly lighter on hover */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Larger shadow on hover for popping effect */
+}
+
+.btn.btn-primary:active {
+  transform: translateY(-1px); /* Mimicking the button being pressed down */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12); /* Smaller shadow to mimic the button being pressed */
 }
 
 #footer {
@@ -237,62 +250,44 @@ h1 {
 
 /* Work experience */
 
-.work-exp-item {
-  text-align: left; /* Aligns the text to the left side */
-}
-
-.flex {
-  display: flex; /* Establishes a flex container */
-  align-items: center; /* Vertically centers the items in the container */
-  justify-content: space-between; /* Distributes space between the items */
-}
-
-.flex img {
-  border-radius: 10px; /* Adds rounded corners to the image */
-  height: 200px; /* Sets a fixed height for the images */
-}
-
-.space-x-4 {
-  gap: 16px; /* Provides space between children horizontally */
-}
-
-.h-36 {
-  height: 144px; /* Sets a fixed height for the images */
-}
-
-.w-auto {
-  width: auto; /* Ensures the width is determined by the content itself */
+.company-logo {
+  height: 216px;
+  width: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .text-details {
   display: flex;
   flex-direction: column;
-  text-align: left; /* Ensures the text details align to the left */
+  text-align: center;
 }
 
 .additional-info {
-  padding-top: 8px; /* Adds space above the additional info */
-  list-style: square; /* Removes bullet points from list */
+  padding-top: 8px;
+  list-style: square;
 }
 
 .additional-info li {
-  text-align: left; /* Aligns the list items' text to the left */
-  margin-bottom: 10px; /* Adds space between list items */
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row; /* Default to row for larger screens */
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 @media (max-width: 768px) {
   .flex {
-    flex-direction: column; /* Stacks the flex children vertically on smaller screens */
-  }
-
-  .space-x-4 {
-    gap: 10px; /* Less space for smaller screens */
-  }
-
-  .text-details {
-    align-items: center; /* Centers the text details when stacked */
+    flex-direction: column; /* Stack vertically on smaller screens */
+    align-items: center; /* Center align the items */
   }
 }
+
 
 /* Portfolio Section */
 

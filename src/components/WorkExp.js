@@ -6,12 +6,12 @@ function WorkExp() {
             <h2 className="mb-4">Work Experience</h2>
             <hr/>
             {/* <!-- Project 1 --> */}
-            <article className="mb-5 ">
+            <article className="mb-5 work-exp-item">
                 <h3> <b>Software Engineer Intern</b> | Robert Bosch</h3>
                 <p>May 2023 to Aug. 2023</p>
                 <hr/>
-                <div className="flex flex-row items-center space-x-4">
-                    <img src={Bosch} alt="Bosch" className="h-36 w-auto"/>
+                <div className="flex">
+                <img src={Bosch} alt="Bosch" className="company-logo"/>
                     <div className="text-details">
                         <div className="additional-info">
                             <li>Formulated a program to revolutionize GM's automated parking Electronic Control Units (ECU) data analysis. Used Python to automate process, generating XML trees, and organizing data into dedicated folders, attaining a remarkable runtime of ~105 milliseconds for processing over 50 files of data.</li>
@@ -22,12 +22,12 @@ function WorkExp() {
                     </div>
                 </div>
             </article>
-            <article className="mb-5 ">
+            <article className="mb-5 work-exp-item">
                 <h3> <b>Software Engineer Intern</b> | Robert Bosch</h3>
                 <p>May 2022 to Aug. 2022</p>
                 <hr/>
-                <div className="flex flex-row items-center space-x-4">
-                    <img src={Bosch} alt="Bosch" className="h-36 w-auto"/>
+                <div className="flex">
+                    <img src={Bosch} alt="Bosch" className="company-logo"/>
                     <div className="text-details">
                         <div className="additional-info">
                             <li>Collaborated with software architects to design and visualize analytical solutions using Simulink MATLAB, building logic-based diagrams. Constructed a running program to simulate LED lights charges in a car, achieving a remarkable ~5% improvement in energy efficiency compared to previous model.</li>
@@ -37,15 +37,15 @@ function WorkExp() {
                     </div>
                 </div>
             </article>
-            <article className="mb-5 ">
+            <article className="mb-5 work-exp-item">
                 <h3> <b>Coding Instructor</b> | STEM1</h3>
                 <p>June 2021 to Nov. 2021</p>
                 <hr/>
-                <div className="flex flex-row items-center space-x-4">
-                    <img src={Stem} alt="Stem" className="h-36 w-auto"/>
+                <div className="flex">
+                    <img src={Stem} alt="Stem" className="company-logo"/>
                     <div className="text-details">
                         <div className="additional-info">
-                        <li>Designed and implemented a comprehensive curriculum for Python, Java, and Scratch, enhancing student understanding of programming fundamentals and logic.</li>
+                            <li>Designed and implemented a comprehensive curriculum for Python, Java, and Scratch, enhancing student understanding of programming fundamentals and logic.</li>
                             <li>Mentored a group of 30+ children (ages 9-15) in Java, Python, and Scratch, fostering programming understanding and logic generating a simple calculator program: add, subtract, multiple, and divide.</li>
                             <li>Orchestrated targeted outreach strategies, driving an ~8% increase in company's website traffic and expanding community presence.</li>
                         </div>
