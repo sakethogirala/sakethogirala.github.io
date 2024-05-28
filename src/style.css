@@ -4,10 +4,6 @@ body {
   font-family: "Times New Roman", Times, serif !important;
 }
 
-/* :root{
-  --bsg-opacity: 0.5;
-} */
-
 header {
   background-color: #f8f9fa;
   padding: 20px;
@@ -40,6 +36,7 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
 
 /* need p occupation to be black */
 h1 {
@@ -91,8 +88,18 @@ h1 {
   color: black;
 }
 
-.about-container {
-  text-align: center; /* Center-aligns the heading */
+/* About me */
+.main-content {
+  margin-left: 300px; /* Adjust this value based on your sidebar width */
+  padding: 20px; /* Provides spacing around the text */
+}
+
+/* Ensure that the layout adjusts on smaller screens */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0; /* Removes margin on smaller devices where the sidebar might be hidden or overlaid */
+    padding: 20px;
+  }
 }
 
 .content-wrapper {
@@ -100,40 +107,74 @@ h1 {
   align-items: start; /* Aligns items at their start, helps manage different content heights */
   justify-content: space-between; /* Maintains space between items */
   text-align: left;
+  flex-direction: row; /* Ensures side-by-side layout on larger screens */
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: start; /* Aligns items at their start, helps manage different content heights */
+  justify-content: space-between; /* Maintains space between items */
+  text-align: left;
+  flex-direction: row; /* Ensures side-by-side layout on larger screens */
 }
 
 .about-image, .about-text {
-  flex: 1; /* Ensures both take equal space */
+  flex: 1; /* Ensures both take equal space on larger screens */
   max-width: 50%; /* Limits width to half of the container for both */
 }
 
+.about-image {
+  flex: 1;
+  max-width: 50%;
+  display: flex; /* Enables flexbox properties within the container */
+  align-items: center; /* Centers the image vertically */
+  justify-content: center; /* Centers the image horizontally */
+  margin-bottom: 10px; /* Adjusted as necessary */
+}
+
 .about-image img {
-  width: 85%; /* Ensures image uses full container width */
-  height: 610px; /* Keeps the aspect ratio of the image */
+  width: 70%; /* Adjust width as necessary */
+  height: auto; /* Adjust height automatically to maintain aspect ratio */
   border-radius: 10px; /* Optional rounded corners */
-  object-fit: cover; /* Ensures the image covers the container */
+  object-fit: cover; /* Ensures the image covers the area without stretching */
+}
+
+/* Adjusts for smaller screens to stack the image and text vertically */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column; /* Stacks the image and text vertically */
+  }
+
+  .about-image, .about-text {
+    max-width: 100%; /* Allows each to take the full width in a stacked layout */
+  }
+
+  .about-image {
+    order: 2; /* Places the image below the text on smaller screens */
+  }
+
+  .about-text {
+    order: 1; /* Places the text above the image on smaller screens */
+  }
+}
+
+@media (min-width: 1024px) { /* For desktop screens */
+  .about-image img {
+    max-width: 70%; /* Smaller than on mobile to keep balance with text */
+    justify-content: center;
+  }
 }
 
 .about-text {
   display: flex;
   flex-direction: column;
   justify-content: center; /* Vertically centers text in the box if less content */
-  border: 1px solid #000; /* Optional border for styling */
   padding: 20px;
   border-radius: 10px; /* Optional rounded corners */
   box-sizing: border-box; /* Includes padding and border in the element's total width and height */
 }
 
-/* Ensures that the layout adapts responsively */
-@media (max-width: 768px) {
-  .content-wrapper {
-    flex-direction: column; /* Stacks the image and text on smaller screens */
-  }
-
-  .about-image, .about-text {
-    max-width: 100%; /* Allows each to take the full width in a stacked layout */
-  }
-}
+/* Classes */
 
 .full-name {
   position: absolute;
@@ -153,7 +194,6 @@ h1 {
   height: 50px; /* Expand to show full name */
   
 }
-
 
 .class-item:hover {
   height: 80px; /* Increases the height of the grid item on hover */
@@ -346,4 +386,98 @@ h1 {
   justify-content: center; /* Center horizontally in the flex container */
   align-items: center; /* Align vertically */
   gap: 20px; /* Space between each icon */
+}
+
+
+:root {
+  --sidebar-width: 300px; /* Adjust based on your actual sidebar width */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", Times, serif;
+  overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 20px;
+  transition: margin-left 0.3s ease-in-out; /* Smooth transition for margin changes */
+}
+
+/* Responsive settings */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 0; /* Sidebar is likely hidden or overlaid */
+  }
+
+  .main-content {
+    margin-left: 0; /* No margin when sidebar is toggled or on smaller devices */
+    padding: 15px;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 100vh;
+  z-index: 9999;  /* Use a very high value for testing */
+  background: black;
+  color: white;
+  transition: left 0.3s ease-in-out;
+}
+
+/* Ensure that no element accidentally covers the sidebar */
+body, html {
+  z-index: 0; /* Standard value for base elements */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Double-check specific items */
+.class-item {
+  z-index: 1; /* Ensure it is much lower than the sidebar */
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 0; /* Fully hide sidebar */
+  }
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row; /* Ensures side-by-side layout on larger screens */
+  justify-content: space-between; /* Space between the content items */
+  align-items: start; /* Align items at the start */
+}
+
+.about-image, .about-text {
+  flex: 1;
+  max-width: 50%; /* Each takes up to half of the container */
+}
+
+.about-image {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.about-image img {
+  width: 100%; /* Full width of its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .about-image, .about-text {
+    max-width: 100%; /* Full width on smaller screens */
+  }
 }

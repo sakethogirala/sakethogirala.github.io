@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Box, VStack, IconButton, Tooltip, Button } from '@chakra-ui/react';
+import { FaHome, FaUser, FaBook, FaBriefcase, FaProjectDiagram, FaFileAlt, FaEnvelope, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import About from './components/About';
@@ -11,58 +11,87 @@ import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-import { FaHome, FaUser, FaBook, FaBriefcase, FaProjectDiagram, FaFileAlt, FaEnvelope } from 'react-icons/fa';
-import { Box, VStack, IconButton, Tooltip } from '@chakra-ui/react';
-
 function App() {
     return (
         <ChakraProvider>
-                <div>
-                    <Header id="/" />
-                    <ConditionalSidebar />
-                    <About id="about" />
-                    <Classes id="classes" />
-                    <WorkExp id="workexp" />
-                    <Projects id="portfolio" />
-                    <Resume id="resume" />
-                    <Contact id="contact" />
-                    <Footer />
-                </div>
+            <div>
+                <Header id="/" />
+                <ConditionalSidebar />
+                <About id="about" />
+                <Classes id="classes" />
+                <WorkExp id="workexp" />
+                <Projects id="portfolio" />
+                <Resume id="resume" />
+                <Contact id="contact" />
+                <Footer />
+            </div>
         </ChakraProvider>
     );
 }
 
 const ConditionalSidebar = () => {
     const [showSidebar, setShowSidebar] = useState(false);
-    const aboutRef = useRef(null);
+    const [showButton, setShowButton] = useState(false);  
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    const sidebarRef = useRef(null);
+    const headerRef = useRef(null);  
+
+    const toggleSidebar = () => setShowSidebar(!showSidebar);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const entry = entries[0];
-                setShowSidebar(entry.isIntersecting);
-            },
-            { threshold: 0.5 }
-        );
+        // Function to update the state based on window width
+        const updateSize = () => {
+            const mobile = window.innerWidth < 768;
+            setIsMobile(mobile);
+            setShowSidebar(!mobile); // Show sidebar by default only on non-mobile devices
+        };
 
-        if (aboutRef.current) {
-            observer.observe(aboutRef.current);
-        }
+        window.addEventListener('resize', updateSize);
+        updateSize(); // Initial check
 
-        return () => {
-            if (aboutRef.current) {
-                observer.unobserve(aboutRef.current);
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const header = headerRef.current;
+            if (header) {
+                const { bottom } = header.getBoundingClientRect();
+                setShowSidebar(isMobile ? false : window.scrollY > bottom); // Conditionally control sidebar based on scroll and device type
+                setShowButton(window.scrollY > bottom);
             }
         };
-    }, []);
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isMobile]); // Depend on isMobile to re-attach the scroll event properly when it changes
+
 
     return (
         <>
-            <div ref={aboutRef} id="about-trigger" />
-            <Sidebar visible={!showSidebar} />
+            <div ref={headerRef} id="headerRef" />
+            <div ref={sidebarRef} id="sidebar-trigger" />
+            <Sidebar visible={showSidebar} />
+            {isMobile && showButton && (
+                <Button
+                    position="fixed"
+                    bottom="20px"
+                    left="20px"
+                    zIndex="1001"
+                    onClick={toggleSidebar}
+                    size="lg"
+                    icon={showSidebar ? <FaArrowLeft /> : <FaArrowRight />}
+                    opacity={0.65}
+                    
+                >
+                    {showSidebar ? <FaArrowLeft /> : <FaArrowRight />}
+                </Button>
+            )}
         </>
     );
 };
+
+
 
 const Sidebar = ({ visible }) => {
     return (
