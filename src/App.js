@@ -96,6 +96,7 @@ const ConditionalSidebar = () => {
 const Sidebar = ({ visible }) => {
     return (
         <Box
+            zIndex={100000}
             position="fixed"
             left={visible ? '0' : '-60px'}
             top="50%"

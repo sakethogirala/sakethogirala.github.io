@@ -358,7 +358,6 @@ h1 {
   text-align: right;
 }
 
-
 /* Resume */
 #resumeFrame {
   width: 80%; /* Reduce the width to 70% of its container */
@@ -437,7 +436,7 @@ body, html {
 }
 
 /* Double-check specific items */
-.class-item {
+.classes-grid {
   z-index: 1; /* Ensure it is much lower than the sidebar */
 }
 

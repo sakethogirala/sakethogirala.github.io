@@ -8,7 +8,7 @@ function Projects() {
         <h2 className="mb-4">Projects/Portfolio</h2>
         <hr/>
         {/* Proj 1 */}
-        <Tabs isFitted variant='enclosed'>
+        <Tabs isFitted variant='soft-rounded' colorScheme='blue' zIndex={1}>
             <TabList mb='1em'>
                 <Tab>Personal Website</Tab>
                 <Tab>Asteroid Game</Tab>
