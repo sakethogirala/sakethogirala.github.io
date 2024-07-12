@@ -26,7 +26,7 @@ function Resume() {
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                        C++, Python, Java, JavaScript, HTML, CSS, SQL, MATLAB, R, C#, Assembly, Julia,
+                        C++, Python, Java, JavaScript, HTML, CSS, SQL, MATLAB, R, C#, Assembly, Julia, Swift, SwiftUI
                     </AccordionPanel>
                 </AccordionItem>
                 <AccordionItem>
@@ -39,7 +39,7 @@ function Resume() {
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                        Git, GitHub, AWS, Google Cloud, SQL
+                        Git, GitHub, AWS, Google Cloud, SQL, EventKit, OpenCV, TensorFlow, Jupyter Notebook
                     </AccordionPanel>
                 </AccordionItem>
                 <AccordionItem>
@@ -52,7 +52,7 @@ function Resume() {
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                        React, Node.js, Flask, PyTorch, NumPy, Bootstrap, Tailwind CSS, Chakra UI, Material-UI
+                        React, Node.js, Flask, Django, PyTorch, NumPy, Bootstrap, Tailwind CSS, Chakra UI, Material-UI
                     </AccordionPanel>
                 </AccordionItem>
             </Accordion>
