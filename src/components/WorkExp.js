@@ -1,11 +1,28 @@
 import Bosch from '../assets/bosch.jpeg';
 import Stem from '../assets/stem1.jpeg';
+import Neuroprop from '../assets/Neuroprop.jpg';
 function WorkExp() {
     return (
         <section id="workexp" className="container text-center my-5">
             <h2 className="mb-4">Work Experience</h2>
             <hr/>
             {/* <!-- Project 1 --> */}
+            <article className="mb-5 work-exp-item">
+                <h3> <b>AI/ML Software Engineer Intern</b> | Neuroprop</h3>
+                <p>June 2024 to Present</p>
+                <hr/>
+                <div className="flex">
+                <img src={Neuroprop} alt="NeuroProp" className="company-logo"/>
+                    <div className="text-details">
+                        <div className="additional-info">
+                            <li>Developed a robust AI-driven system leveraging reinforced and unsupervised learning algorithms to analyze and predict the most promising real estate investment opportunities for lenders, optimizing decision-making based on their previous investment patterns and market trends.</li>
+                            <li>Engineered a scalable PostgreSQL database schema to efficiently manage and store a comprehensive set of real estate property data, including critical attributes such as geographical location, historical pricing data, market trends, and dynamically generated investment potential scores.</li>
+                            <li>Led the design and development of a responsive front-end interface using Django templating with HTML, Bootstrap for styling, and advanced JavaScript libraries such as jQuery, Dropzone.js, and ApexCharts. The interface was tailored to deliver an intuitive user experience, allowing lenders to easily navigate and visualize complex real estate data, compare investment options, and make informed decisions based on detailed analytical insights.</li>
+                            <li>Collaborated closely with cross-functional teams, including data scientists and UI/UX designers, to align the AI models with user needs, ensuring that the final application not only delivered high-accuracy predictions but also provided an engaging and user-friendly experience.</li>
+                        </div>
+                    </div>
+                </div>
+            </article>
             <article className="mb-5 work-exp-item">
                 <h3> <b>Software Engineer Intern</b> | Robert Bosch</h3>
                 <p>May 2023 to Aug. 2023</p>

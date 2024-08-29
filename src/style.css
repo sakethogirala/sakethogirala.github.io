@@ -251,10 +251,13 @@ h1 {
 /* Work experience */
 
 .company-logo {
-  height: 216px;
-  width: auto;
+  /* height: 216px;
+  width: auto; */
   border-radius: 10px;
   margin-bottom: 20px;
+  width: 100%; /* Set to 100% to make it responsive */
+  max-width: 200px; /* Adjust this value to match the Bosch image size */
+  height: auto; /* Maintain aspect ratio */
 }
 
 .text-details {
