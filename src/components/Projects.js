@@ -26,10 +26,12 @@ function Projects() {
                                 
                                 <div className="text-details">
                                     <div className="additional-info">
-                                        <li>Created a robust, responsive personal website using React and Chakra UI, which showcases a portfolio of projects, resume, and contact information. The website features dynamic content, including interactive tabs and embedded media such as videos, demonstrating a high level of user engagement.</li>
-                                        <li>Integrated modern web development technologies including HTML5, CSS3, and JavaScript, ensuring high performance and cross-browser compatibility. Employed React Hooks for state management and optimized React components for faster rendering and improved user experience.</li>
-                                        <li>Utilized CSS Flexbox and Grid systems to create a fluid and adaptable layout that responds smoothly to different screen sizes. This approach ensures that the website offers an optimal viewing experience across all devices, from desktops to smartphones.</li>
-                                        <li><a href = "#contact"><u>Let me know what you think!</u></a></li>
+                                        <ul>
+                                            <li>Created a robust, responsive personal website using React and Chakra UI, which showcases a portfolio of projects, resume, and contact information. The website features dynamic content, including interactive tabs and embedded media such as videos, demonstrating a high level of user engagement.</li>
+                                            <li>Integrated modern web development technologies including HTML5, CSS3, and JavaScript, ensuring high performance and cross-browser compatibility. Employed React Hooks for state management and optimized React components for faster rendering and improved user experience.</li>
+                                            <li>Utilized CSS Flexbox and Grid systems to create a fluid and adaptable layout that responds smoothly to different screen sizes. This approach ensures that the website offers an optimal viewing experience across all devices, from desktops to smartphones.</li>
+                                            <li><a href = "#contact"><u>Let me know what you think!</u></a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -43,10 +45,12 @@ function Projects() {
                             <VideoComponent videoSrc={asteroidVideo}/>
                             <div className="text-details">
                                 <div className="additional-info">
-                                    <li>Pioneered the creation of an engaging "Asteroids" game, written in JavaScript and jQuery, featuring a compatible UI with cross-browser compatibility, successfully functioning on the latest version of Google Chrome.</li>
-                                    <li>Devised game logic for random asteroid generation with varying speeds (1x, 3x, and 5x) and spawn rates (1000 ms for easy to 600 ms for hard level), enhancing difficulty and user engagement across multiple levels.</li>
-                                    <li>Programmed a real-time scoreboard that updated every 500 ms, incorporating a scoring system rewarding players' survival skills and strategic maneuvering, with scores increasing by 40 points for every half-second survived.</li>
-                                    <li>Incorporating algorithms that accurately determine the intersections between player-controlled spacecraft and randomly generated asteroids, the game provides a dynamically challenging environment that tests and improves player reaction times and strategic planning.</li>
+                                    <ul>
+                                        <li>Pioneered the creation of an engaging "Asteroids" game, written in JavaScript and jQuery, featuring a compatible UI with cross-browser compatibility, successfully functioning on the latest version of Google Chrome.</li>
+                                        <li>Devised game logic for random asteroid generation with varying speeds (1x, 3x, and 5x) and spawn rates (1000 ms for easy to 600 ms for hard level), enhancing difficulty and user engagement across multiple levels.</li>
+                                        <li>Programmed a real-time scoreboard that updated every 500 ms, incorporating a scoring system rewarding players' survival skills and strategic maneuvering, with scores increasing by 40 points for every half-second survived.</li>
+                                        <li>Incorporating algorithms that accurately determine the intersections between player-controlled spacecraft and randomly generated asteroids, the game provides a dynamically challenging environment that tests and improves player reaction times and strategic planning.</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -60,10 +64,12 @@ function Projects() {
                             <VideoComponent videoSrc={searchEngineVideo}/>
                             <div className="text-details">
                                 <div className="additional-info">
-                                    <li>Constructed a robust search engine application utilizing modern web technologies, integrating JavaScript frameworks for dynamic client-side interactions, HTML5 for semantic structuring, and CSS3 for responsive and visually appealing design.</li>
-                                    <li>Designed and optimized sophisticated algorithms for indexing and querying extensive datasets, ensuring rapid and accurate search results. Leveraged SQL for managing indexed data, facilitating efficient storage, retrieval, and manipulation of large volumes of data.</li>
-                                    <li>Created a RESTful API using Flask to handle search queries, document indexing, and result retrieval. Demonstrated proficiency in API development and documentation, ensuring secure, scalable, and maintainable backend services to support the search functionality.</li>
-                                    <li>Utilized advanced data structures and query optimization techniques to enhance the performance and scalability of the search engine. Conducted comprehensive testing to validate the accuracy, reliability, and efficiency of search results, ensuring a seamless user experience even with large datasets.</li>
+                                    <ul>
+                                        <li>Constructed a robust search engine application utilizing modern web technologies, integrating JavaScript frameworks for dynamic client-side interactions, HTML5 for semantic structuring, and CSS3 for responsive and visually appealing design.</li>
+                                        <li>Designed and optimized sophisticated algorithms for indexing and querying extensive datasets, ensuring rapid and accurate search results. Leveraged SQL for managing indexed data, facilitating efficient storage, retrieval, and manipulation of large volumes of data.</li>
+                                        <li>Created a RESTful API using Flask to handle search queries, document indexing, and result retrieval. Demonstrated proficiency in API development and documentation, ensuring secure, scalable, and maintainable backend services to support the search functionality.</li>
+                                        <li>Utilized advanced data structures and query optimization techniques to enhance the performance and scalability of the search engine. Conducted comprehensive testing to validate the accuracy, reliability, and efficiency of search results, ensuring a seamless user experience even with large datasets.</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

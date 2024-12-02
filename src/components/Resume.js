@@ -57,8 +57,10 @@ function Resume() {
                 </AccordionItem>
             </Accordion>
             <iframe id="resumeFrame"
-                    src={ResumeFile}
-                    style={{ border: 'none' }}>
+                src={ResumeFile}
+                style={{ border: 'none' }}
+                title="Saketh Ogirala's Resume"
+                aria-label="Resume of Saketh Ogirala">
             </iframe>
         </section>
     );

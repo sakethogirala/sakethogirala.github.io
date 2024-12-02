@@ -114,25 +114,25 @@ const Sidebar = ({ visible }) => {
         >
             <VStack spacing={4} mt={8}>
                 <Tooltip label="Home" placement="right">
-                    <a href="#header"><IconButton icon={<FaHome />} variant="ghost" colorScheme="whiteAlpha" aria-label="Home" /></a>
+                    <a href="#header" aria-label="Home"><IconButton icon={<FaHome />} variant="ghost" colorScheme="whiteAlpha" aria-label="Home" /></a>
                 </Tooltip>
                 <Tooltip label="About" placement="right">
-                    <a href="#about"><IconButton icon={<FaUser />} variant="ghost" colorScheme="whiteAlpha" aria-label="About" /></a>
+                    <a href="#about" aria-label="About"><IconButton icon={<FaUser />} variant="ghost" colorScheme="whiteAlpha" aria-label="About" /></a>
                 </Tooltip>
                 <Tooltip label="Classes" placement="right">
-                    <a href="#classes"><IconButton icon={<FaBook />} variant="ghost" colorScheme="whiteAlpha" aria-label="Classes" /></a>
+                    <a href="#classes" aria-label="Classes"><IconButton icon={<FaBook />} variant="ghost" colorScheme="whiteAlpha" aria-label="Classes" /></a>
                 </Tooltip>
                 <Tooltip label="Work Experience" placement="right">
-                    <a href="#workexp"><IconButton icon={<FaBriefcase />} variant="ghost" colorScheme="whiteAlpha" aria-label="Work Experience" /></a>
+                    <a href="#workexp" aria-label="Work Exp"><IconButton icon={<FaBriefcase />} variant="ghost" colorScheme="whiteAlpha" aria-label="Work Experience" /></a>
                 </Tooltip>
                 <Tooltip label="Projects" placement="right">
-                    <a href="#portfolio"><IconButton icon={<FaProjectDiagram />} variant="ghost" colorScheme="whiteAlpha" aria-label="Projects" /></a>
+                    <a href="#portfolio" aria-label="Projects"><IconButton icon={<FaProjectDiagram />} variant="ghost" colorScheme="whiteAlpha" aria-label="Projects" /></a>
                 </Tooltip>
                 <Tooltip label="Resume" placement="right">
-                    <a href="#resume"><IconButton icon={<FaFileAlt />} variant="ghost" colorScheme="whiteAlpha" aria-label="Resume" /></a>
+                    <a href="#resume" aria-label="Resume"><IconButton icon={<FaFileAlt />} variant="ghost" colorScheme="whiteAlpha" aria-label="Resume" /></a>
                 </Tooltip>
                 <Tooltip label="Contact" placement="right">
-                    <a href="#contact"><IconButton icon={<FaEnvelope />} variant="ghost" colorScheme="whiteAlpha" aria-label="Contact" /></a>
+                    <a href="#contact" aria-label="Contact"><IconButton icon={<FaEnvelope />} variant="ghost" colorScheme="whiteAlpha" aria-label="Contact" /></a>
                 </Tooltip>
             </VStack>
         </Box>
