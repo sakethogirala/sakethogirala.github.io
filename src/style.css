@@ -478,3 +478,43 @@ body, html {
     max-width: 100%; /* Full width on smaller screens */
   }
 }
+
+
+/* Add these styles to your CSS file */
+.typing-effect {
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid white;
+  width: 0; /* Start hidden */
+  margin: 0 auto; /* Ensure it's centered */
+  animation: typing 3s steps(20, end) forwards, blink 0.5s step-end infinite;
+  display: inline-block; /* Keeps text inline for typing effect */
+  text-align: center; /* Ensures proper alignment */
+}
+
+@keyframes typing {
+  from {
+      width: 0; /* Start with no text */
+  }
+  to {
+      width: 100%; /* Reveal full text */
+  }
+}
+
+@keyframes blink {
+  from {
+      border-color: transparent;
+  }
+  to {
+      border-color: white;
+  }
+}
+
+/* Optional styling for header to ensure proper centering */
+#header {
+  text-align: center;
+}
+

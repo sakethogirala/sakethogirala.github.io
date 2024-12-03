@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChakraProvider, Box, VStack, IconButton, Tooltip, Button } from '@chakra-ui/react';
-import { FaHome, FaUser, FaBook, FaBriefcase, FaProjectDiagram, FaFileAlt, FaEnvelope, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
+import { ChakraProvider, Box, VStack, IconButton, Tooltip, Button, extendTheme } from '@chakra-ui/react';
+import { FaHome, FaUser, FaBook, FaBriefcase, FaProjectDiagram, FaFileAlt, FaEnvelope, FaArrowRight, FaArrowLeft, FaMoon, FaSun } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import About from './components/About';
@@ -10,10 +10,24 @@ import Projects from './components/Projects';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { useColorMode } from '@chakra-ui/react';
+
+const theme = extendTheme({
+    styles: {
+        global: {
+            body: {
+                _dark: {
+                    bg: "gray.900", // Dark mode background
+                    color: "white", // Dark mode text color
+                },
+            },
+        },
+    },
+});
 
 function App() {
     return (
-        <ChakraProvider>
+        <ChakraProvider theme={theme}>
             <div>
                 <Header id="/" />
                 <ConditionalSidebar />
@@ -31,23 +45,22 @@ function App() {
 
 const ConditionalSidebar = () => {
     const [showSidebar, setShowSidebar] = useState(false);
-    const [showButton, setShowButton] = useState(false);  
+    const [showButton, setShowButton] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const sidebarRef = useRef(null);
-    const headerRef = useRef(null);  
+    const headerRef = useRef(null);
 
     const toggleSidebar = () => setShowSidebar(!showSidebar);
 
     useEffect(() => {
-        // Function to update the state based on window width
         const updateSize = () => {
             const mobile = window.innerWidth < 768;
             setIsMobile(mobile);
-            setShowSidebar(!mobile); // Show sidebar by default only on non-mobile devices
+            setShowSidebar(!mobile);
         };
 
         window.addEventListener('resize', updateSize);
-        updateSize(); // Initial check
+        updateSize();
 
         return () => window.removeEventListener('resize', updateSize);
     }, []);
@@ -57,15 +70,14 @@ const ConditionalSidebar = () => {
             const header = headerRef.current;
             if (header) {
                 const { bottom } = header.getBoundingClientRect();
-                setShowSidebar(isMobile ? false : window.scrollY > bottom); // Conditionally control sidebar based on scroll and device type
+                setShowSidebar(isMobile ? false : window.scrollY > bottom);
                 setShowButton(window.scrollY > bottom);
             }
         };
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [isMobile]); // Depend on isMobile to re-attach the scroll event properly when it changes
-
+    }, [isMobile]);
 
     return (
         <>
@@ -80,9 +92,7 @@ const ConditionalSidebar = () => {
                     zIndex="1001"
                     onClick={toggleSidebar}
                     size="lg"
-                    icon={showSidebar ? <FaArrowLeft /> : <FaArrowRight />}
                     opacity={0.65}
-                    
                 >
                     {showSidebar ? <FaArrowLeft /> : <FaArrowRight />}
                 </Button>
@@ -91,9 +101,14 @@ const ConditionalSidebar = () => {
     );
 };
 
-
-
 const Sidebar = ({ visible }) => {
+    const { colorMode, toggleColorMode } = useColorMode(); // Access the current color mode
+
+    const bgColor = colorMode === "light" ? "black" : "gray.200"; // Sidebar background
+    const textColor = colorMode === "light" ? "white" : "black"; // Text color for icons and labels
+    const iconColor = colorMode === "light" ? "whiteAlpha.800" : "blackAlpha.800"; // Adjust icon brightness
+    const hoverColor = colorMode === "light" ? "whiteAlpha.900" : "blackAlpha.900"; // Hover color for icons
+
     return (
         <Box
             zIndex={100000}
@@ -102,8 +117,8 @@ const Sidebar = ({ visible }) => {
             top="50%"
             transform="translateY(-50%)"
             w="60px"
-            bg="black"
-            color="white"
+            bg={bgColor} // Dynamically set background color
+            color={textColor} // Dynamically set text color
             display="flex"
             flexDirection="column"
             alignItems="center"
@@ -114,29 +129,107 @@ const Sidebar = ({ visible }) => {
         >
             <VStack spacing={4} mt={8}>
                 <Tooltip label="Home" placement="right">
-                    <a href="#header" aria-label="Home"><IconButton icon={<FaHome />} variant="ghost" colorScheme="whiteAlpha" aria-label="Home" /></a>
+                    <a href="#header" aria-label="Home">
+                        <IconButton
+                            icon={<FaHome />}
+                            variant="ghost"
+                            colorScheme="none"
+                            aria-label="Home"
+                            _hover={{ color: hoverColor }} // Lighter hover effect
+                            color={iconColor} // Icon color
+                        />
+                    </a>
                 </Tooltip>
                 <Tooltip label="About" placement="right">
-                    <a href="#about" aria-label="About"><IconButton icon={<FaUser />} variant="ghost" colorScheme="whiteAlpha" aria-label="About" /></a>
+                    <a href="#about" aria-label="About">
+                        <IconButton
+                            icon={<FaUser />}
+                            variant="ghost"
+                            colorScheme="none"
+                            aria-label="About"
+                            _hover={{ color: hoverColor }}
+                            color={iconColor}
+                        />
+                    </a>
                 </Tooltip>
                 <Tooltip label="Classes" placement="right">
-                    <a href="#classes" aria-label="Classes"><IconButton icon={<FaBook />} variant="ghost" colorScheme="whiteAlpha" aria-label="Classes" /></a>
+                    <a href="#classes" aria-label="Classes">
+                        <IconButton
+                            icon={<FaBook />}
+                            variant="ghost"
+                            colorScheme="none"
+                            aria-label="Classes"
+                            _hover={{ color: hoverColor }}
+                            color={iconColor}
+                        />
+                    </a>
                 </Tooltip>
                 <Tooltip label="Work Experience" placement="right">
-                    <a href="#workexp" aria-label="Work Exp"><IconButton icon={<FaBriefcase />} variant="ghost" colorScheme="whiteAlpha" aria-label="Work Experience" /></a>
+                    <a href="#workexp" aria-label="Work Exp">
+                        <IconButton
+                            icon={<FaBriefcase />}
+                            variant="ghost"
+                            colorScheme="none"
+                            aria-label="Work Experience"
+                            _hover={{ color: hoverColor }}
+                            color={iconColor}
+                        />
+                    </a>
                 </Tooltip>
                 <Tooltip label="Projects" placement="right">
-                    <a href="#portfolio" aria-label="Projects"><IconButton icon={<FaProjectDiagram />} variant="ghost" colorScheme="whiteAlpha" aria-label="Projects" /></a>
+                    <a href="#portfolio" aria-label="Projects">
+                        <IconButton
+                            icon={<FaProjectDiagram />}
+                            variant="ghost"
+                            colorScheme="none"
+                            aria-label="Projects"
+                            _hover={{ color: hoverColor }}
+                            color={iconColor}
+                        />
+                    </a>
                 </Tooltip>
                 <Tooltip label="Resume" placement="right">
-                    <a href="#resume" aria-label="Resume"><IconButton icon={<FaFileAlt />} variant="ghost" colorScheme="whiteAlpha" aria-label="Resume" /></a>
+                    <a href="#resume" aria-label="Resume">
+                        <IconButton
+                            icon={<FaFileAlt />}
+                            variant="ghost"
+                            colorScheme="none"
+                            aria-label="Resume"
+                            _hover={{ color: hoverColor }}
+                            color={iconColor}
+                        />
+                    </a>
                 </Tooltip>
                 <Tooltip label="Contact" placement="right">
-                    <a href="#contact" aria-label="Contact"><IconButton icon={<FaEnvelope />} variant="ghost" colorScheme="whiteAlpha" aria-label="Contact" /></a>
+                    <a href="#contact" aria-label="Contact">
+                        <IconButton
+                            icon={<FaEnvelope />}
+                            variant="ghost"
+                            colorScheme="none"
+                            aria-label="Contact"
+                            _hover={{ color: hoverColor }}
+                            color={iconColor}
+                        />
+                    </a>
+                </Tooltip>
+                {/* Add Dark Mode Toggle */}
+                <Tooltip label="Toggle Dark Mode" placement="right">
+                    <IconButton
+                        icon={colorMode === 'light' ? <FaMoon /> : <FaSun />}
+                        onClick={toggleColorMode}
+                        variant="ghost"
+                        colorScheme="none"
+                        aria-label="Toggle Dark Mode"
+                        _hover={{ color: hoverColor }}
+                        color={iconColor}
+                    />
                 </Tooltip>
             </VStack>
         </Box>
     );
 };
+
+
+
 
 export default App;

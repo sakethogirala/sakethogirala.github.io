@@ -5,9 +5,9 @@ function Header() {
     return (
         <header className="bg-gradient text-white d-flex justify-content-center align-items-center vh-100 text-center">
             <div id="header">
-                <img src={profilePic} alt="Saketh Ogirala" className="rounded-circle mb-4" width="300"/>
+                <img src={profilePic} alt="Saketh Ogirala" className="rounded-circle mb-4" width="300" />
                 <div className="name-box">
-                    <h1 className="display-3 font-weight-bold">Saketh Ogirala</h1>
+                    <h1 className="typing-effect">Saketh Ogirala</h1>
                     <p id="occupation" className="h2 font-weight-semibold">Junior at The University of Michigan</p>
                     <div className="mt-4">
                         <a href="#about" className="btn btn-primary m-2">Learn More</a>
